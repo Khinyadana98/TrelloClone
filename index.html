@@ -1,384 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!----------------Fontawesome ------------------>
-  <link
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!----------------Fontawesome ------------------>
+    <link
       rel="stylesheet"
       href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
       integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
       crossorigin="anonymous"
     />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
- 
- 
-  <!----------------Font ------------------>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
-    rel="stylesheet"
-  />
-<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
+    <!----------------Font ------------------>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
 
-  <!----------------Bootstrap ------------------>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
+    <!----------------Bootstrap ------------------>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
 
     <title>trello</title>
-    <link rel="stylesheet" href="index.css" type="text/css"/>
+    <link rel="stylesheet" href="index.css" type="text/css" />
+  </head>
+  <body onclick="closeOptionMenu()">
+    <nav
+      id="first-nav"
+      class="d-flex justify-content-between first-nav text-light"
+      onclick="closeOptionMenu()"
+    >
+      <div class="d-flex">
+        <button class="btn btn-sm text-light m-1">
+          <i class="fa fa-th-large"></i>
+        </button>
+        <button class="btn btn-sm text-light m-1">
+          <i class="fa fa-home"></i>
+        </button>
+        <button class="btn btn-sm text-light m-1 font-weight-bold">
+          <i class="fa fa-th-list"></i>&nbsp;&nbsp;&nbsp;Boards
+        </button>
+        <span class="m-1 px-1">
+          <input type="text" id="search" /> <i class="fas fa-search"></i>
+        </span>
+      </div>
 
-</head>
-<body>
-    <div class="trello-header">
-<div class="header" id="nav-1">
-  <div class="header_first">
-    <button class="btn btn-sm">
-      <span><i class="fas fa-th"></i></span>
-    </button>
-    <button class="btn btn-sm" >
-      <span><i class="fas fa-home"></i></span>
-    </button>
-    <button class="btn btn-sm btn-boards" >
-      <span><i class="fab fa-trello"></i>&nbsp;&nbsp;&nbsp;Boards</span> 
-    </button>
-   <input class=" input-search" type="search" placeholder="Search">
-  </div>
-  <div class="header_middle">
-  
-    <div class="Logo_div">
-      <span class="Logo_icon"><i class="fab fa-trello"></i></span>
-      <span class="Logo_text">Trello</span>
-    </div>
+      <a id="trello-link" href="https://trello.com" class="mt-2"
+        ><i class="fab fa-trello"></i> &ThinSpace;Trello</a
+      >
 
-  </div>
-  <div class="header_end">
-    <button class="btn btn-sm"><span><i class="fas fa-plus"></i></span></button>
-    <button class="btn btn-sm"><span><i class="fas fa-power-off"></i></span></button>
-    <button class="btn btn-sm" ><span><i class="fas fa-bell"></i></span></button>
- 
-   
+      <div
+        class="d-flex justify-content-center align-items-center first-nav text-light"
+        id="centerhold"
+      ></div>
 
-  </div>
-</div>
-<div class="trello-board">
- 
-<div class="board_header" id="nav-2">
-  <div class="board_header_one">
-  <h1>Trello Clone</h1>
-  <button class="star" ><span><i class="far fa-star"></i></span></button>
-  <button ><span><i class="fas fa-user-friends"></i></span><span style="color:#172b4d; font-weight: 400;font-size: 14px;">Team Visible</span></button>
-  <span class="divider"></span>
-  <div class="mem_photo">
-    <div class="photos">
-      <a tabindex="0" style="z-index: 5;"><img src="/assets/profile.jpg" height="30" width="30" alt=""></a>
-      <a tabindex="0"  style="z-index: 4;"><img src="/assets/mem.jpg" alt=""></a>
-      <a tabindex="0"  style="z-index: 3;"><img src="/assets/mem1.jpeg" alt=""></a>
-      <a tabindex="0"  style="z-index: 2;"><img src="/assets/mem2.jpeg" alt=""></a>
-      <a tabindex="0"  style="z-index: 1;"><img src="/assets/mem3.jpg" alt=""></a>
+      <div class="d-flex">
+        <button class="btn btn-sm text-light m-1">
+          <i class="fa fa-plus"></i>
+        </button>
+        <button class="btn btn-sm text-light m-1">
+          <i class="fa fa-info-circle"></i>
+        </button>
+        <button class="btn btn-sm text-light m-1">
+          <i class="fa fa-bell"></i>
+        </button>
+        <button class="btn btn-sm text-light m-1 avatar profile p-0"></button>
+      </div>
+    </nav>
 
-    </div>
-   <button><span style="color: #172b4d; font-weight: 400;">+22</span></button>
+    <nav
+      id="second-nav"
+      class="d-flex flex-wrap justify-content-between second-nav text-light p-1"
+      onclick="closeOptionMenu()"
+    >
+      <div class="d-flex">
+        <h1 class="second-nav-title">Trello Clone</h1>
+        <button class="btn btn-sm my-2 mx-1 stretch-x">
+          <i class="far fa-star"></i>
+        </button>
 
-
-  </div>
-  <button class="btn_invite"><span style="color: #172b4d; font-weight: 400;">Invite</span></button>
-
-</div>
-
-
-<div class="board_header_two">
-<button ><span><i class="fas fa-concierge-bell"></i></span><span  style="color:#172b4d; font-weight: 400;font-size: 14px;">Butler</span></button>
-<button ><span><i class="fas fa-ellipsis-h"></i></span><span  style="color:#172b4d; font-weight: 400; font-size: 14px;">Show Menu</span></button>
-
-</div>
-  </div>
-
-  <div class="board row  row-cols-1 row-cols-md-5 g-2" id="wrapper"  >
-    </div>
-
-    <!-- <div class="rounded p-1" id="add-list-popup">
-
-      <input type="text" class="trello-black" id="list-title-input" onkeyup="inputEntered(event)"/>
-       <div class="d-flex justify-content-between align-items-center pt-1">
-           <button class="btn btn-sm btn-success m-1" onclick="saveNewList()">Add</button>
-           <button class="btn btn-lg my-1 mx-2 p-0 text-danger" onclick="toggelAddListPopup(false)" style="font-size: large;">
-               <i class="fas fa-times"></i> 
-           </button>
-       </div> -->
-
-   
-    <!-- .................Modal......................... -->
-    
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-
-      <div class="modal-dialog modal-lg">
-
-          <div class="modal-content">
-
-              <div class="modal-header">
-
-                  <div class="d-flex">
-                      <i class="fas fa-money-check"></i>
-                      <div>
-                          <h1 id="modal-h1">  </h1>
-                          <p>in List <a href="#" id="modal-a">  </a></p>
-                      </div>
-                  </div>
-                  <button type="button" class="close mr-1" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true"> <i class="fas fa-times"></i></span>
-                  </button>
-
-              </div>
-
-              <div class="modal-body">
-
-                  <div class="modal-leftside">
-
-                      <div class="modal-leftside-section d-flex">
-                          <i class="fas fa-align-left"></i>
-                          <div class="mx-2">
-                              <h2> Description </h2> 
-                              <p id="modal-description">  </p>
-                          </div>
-                      </div>
-
-                      <div class="modal-leftside-section d-flex mb-4">
-                          <i class="fas fa-paperclip"></i>
-                          <div class="mx-2">
-                              <h2 class="mb-3"> Attachment </h2> 
-                              <a> Add an attachment </a>
-                          </div>
-                      </div>
-
-                      <div class="modal-leftside-section d-flex">
-                          <i class="fas fa-check-square"></i>
-                          <div class="checklist-wrapper mx-2">
-                              <div class="checklist">
-                                  <h2> Checklist </h2> 
-                                  <a> delete </a>
-                              </div>
-                              <p> none </p>
-                          </div>
-                      </div>
-
-                      <div class="modal-leftside-section d-flex">
-                          <i class="fas fa-list-ul"></i>
-                          <div class="checklist mx-2">
-                              <h2> Activity </h2>
-                              <a> Show Details </a> 
-                          </div>
-                      </div>
-
-                      <div class="modal-leftside-section d-flex mt-4 align-items-center">
-                          <button class="btn btn-sm text-light m-1 avatar profile"></button>
-                          <input type="text" name="" placeholder="Write a comment...">
-                      </div>
-                  </div>
-
-                  <div class="modal-rightside">
-
-                      <div class="suggested d-flex justify-content-between">
-                          <h3> SUGGESTED </h3>
-                          <i class="fas fa-cog"></i>
-                      </div>
-
-                      <div class="modal-rightside-section">
-                          <i class="far fa-user"></i>
-                          <label> Join </label>
-                      </div>
-
-                      <div class="feedback my-3">
-                          <a> Feedback </a>
-                      </div>
-
-                      <div class="">
-                          <h3> ADD TO CARD </h3>
-                          <div class="modal-rightside-section my-2">
-                              <i class="far fa-user"></i>
-                              <label>Members</label>
-                          </div>
-                          <div class="modal-rightside-section my-2">
-                              <i class="fas fa-tag"></i>
-                              <label> Labels </label>
-                          </div>
-                          <div class="modal-rightside-section my-2">
-                              <i class="far fa-check-square"></i>
-                              <label> Checklist </label>
-                          </div>
-                          <div class="modal-rightside-section my-2">
-                              <i class="far fa-clock"></i>
-                              <label> Due Date </label>
-                          </div>
-                          <div class="modal-rightside-section my-2">
-                              <i class="fas fa-paperclip"></i>
-                              <label> Attachment </label>
-                          </div>
-                          <div class="modal-rightside-section my-2">
-                              <i class="fas fa-tv"></i>
-                              <label> Cover </label>
-                          </div> 
-                      </div>
-
-                      <div class="">
-                          <h3> POWER UPS </h3>
-                          <div class="modal-rightside-section my-2">
-                              <i class="fab fa-github"></i>
-                              <label> Github </label>
-                          </div>
-                          <div class="modal-rightside-section my-2">
-                              <label> More Power Ups </label>
-                          </div>
-                      </div>
-
-                      <div class="">
-                          <h3> ACTIONS </h3>
-                          <div class="modal-rightside-section my-2">
-                              <i class="fas fa-arrow-right"></i>
-                              <label> Move </label>
-                          </div>
-                          <div class="modal-rightside-section my-2">
-                              <i class="far fa-copy"></i>
-                              <label> Copy </label>
-                          </div>
-                          <div class="modal-rightside-section my-2">
-                              <i class="fas fa-money-check"></i>
-                              <label> Make Template </label>
-                          </div>
-                          <div class="modal-rightside-section my-2">
-                              <i class="far fa-eye"></i>
-                              <label> Watch </label>
-                          </div>
-                          <div class="modal-rightside-section my-2">
-                              <i class="fas fa-archive"></i>
-                              <label> Archive </label>
-                          </div>
-                          <div class="modal-rightside-section my-2">
-                              <i class="fas fa-share-alt"></i>
-                              <label> Share </label>
-                          </div>
-                      </div>
-
-                  </div>
-
-              </div>
-
+        <button class="btn btn-sm my-2 mx-1">
+          <i class="fa fa-users"></i>&nbsp;&nbsp;Team Visible
+        </button>
+        <span class="divider"></span>
+        <div class="mem_photo">
+          <div class="photos">
+            <a tabindex="0" style="z-index: 5"
+              ><img src="/assets/profile.jpg" height="30" width="30" alt=""
+            /></a>
+            <a tabindex="0" style="z-index: 4"
+              ><img src="/assets/mem.jpg" alt=""
+            /></a>
+            <a tabindex="0" style="z-index: 3"
+              ><img src="/assets/mem1.jpeg" alt=""
+            /></a>
+            <a tabindex="0" style="z-index: 2"
+              ><img src="/assets/mem2.jpeg" alt=""
+            /></a>
+            <a tabindex="0" style="z-index: 1"
+              ><img src="/assets/mem3.jpg" alt=""
+            /></a>
           </div>
+          <button style="background-color: rgba(255, 255, 255, 0.25)">
+            <span style="color: #172b4d; font-weight: 400">+22</span>
+          </button>
+        </div>
+        <button class="btn btn-sm my-2 mx-1">&nbsp;Invite&nbsp;</button>
+      </div>
+      <div class="d-flex justify-content-end" style="flex-grow: 1">
+        <button class="btn btn-sm my-2 mx-1">
+          <i class="fa fa-cogs"></i>&nbsp;&nbsp;Butler
+        </button>
+        <button class="btn btn-sm my-2 mx-1">
+          <i class="fa fa-ellipsis-h"></i>&nbsp;&nbsp;Show Menu
+        </button>
+      </div>
+    </nav>
 
-      </div> 
-
-  </div>
-
-    <div class="list-menu rounded p-1" id="list-menu-popup">
-
-      <ul class="list-group list-group-flush">
-
-          <p> List Actions </p> 
-         
-          <hr align="center">
-      
-          <li class="list-group-item list-group-item-action"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;Add Card</li>
-          <li class="list-group-item list-group-item-action"><i class="fa fa-copy"></i>&nbsp;&nbsp;&nbsp;Copy List</li>
-          <li class="list-group-item list-group-item-action"><i class="fas fa-expand-arrows-alt"></i>&nbsp;&nbsp;&nbsp;Move List</li>
-          <li class="list-group-item list-group-item-action"><i class="fa fa-eye"></i>&nbsp;&nbsp;&nbsp;Watch</li>
-          <hr> 
-          <li class="list-group-item list-group-item-action"><i class="fas fa-sort"></i>&nbsp;&nbsp;&nbsp;Sort By ...</li>
-          <hr>
-          <li class="list-group-item list-group-item-action"><i class="fas fa-file-archive"></i>&nbsp;&nbsp;&nbsp;Archive All Cards in This List </li>
-          <li class="list-group-item list-group-item-action"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;&nbsp;Move All 
-          Card in This List  </li>
-          <li class="list-group-item text-danger list-group-item-action" onclick="goDeleteList()"><i class="fa fa-trash"></i>&nbsp;&nbsp;&nbsp;Delete</li>
-
-      </ul>
-
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-<!--     
     <div
-      class="modal modal-sm"
-      id="ListActionModal"
+      id="wrapper"
+      class="p-2"
+      onscroll="wrapperScrolled()"
+      onclick="closeOptionMenu()"
+    ></div>
+
+    <!-- <div class="board row  row-cols-1 row-cols-md-5 g-2" id="wrapper" onscroll="wrapperScrolled()" >
+    </div> -->
+
+    <div class="rounded p-1" id="add-list-popup">
+      <input
+        type="text"
+        class="trello-black"
+        id="list-title-input"
+        onkeyup="inputEntered(event)"
+      />
+      <div class="d-flex justify-content-between align-items-center pt-1">
+        <button class="btn btn-sm btn-success m-1" onclick="saveNewList()">
+          Add
+        </button>
+
+        <button
+          class="btn btn-lg my-1 mx-2 p-0 text-danger"
+          onclick="toggelAddListPopup(false)"
+          style="font-size: large"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- .................Modal......................... -->
+
+    <div
+      class="modal fade"
+      id="exampleModal"
       tabindex="-1"
-      aria-labelledby="ListActionModalLabel"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog  modal-sm">
+      <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">List Actions</h5>
-
+            <div class="d-flex">
+              <i class="fas fa-money-check"></i>
+              <div>
+                <h1 id="modal-h1"></h1>
+                <p>in List <a href="#" id="modal-a"> </a></p>
+              </div>
+            </div>
             <button
               type="button"
-              class="close"
+              class="close mr-1"
               data-dismiss="modal"
               aria-label="Close"
             >
-              <span aria-hidden="true">&times;</span>
+              <span aria-hidden="true"> <i class="fas fa-times"></i></span>
             </button>
           </div>
-          <div class="modal-body" id="list-menu" id="list-menu-popup">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item list-group-item-action">
-                <i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;Add Card
-              </li>
-              <li class="list-group-item list-group-item-action">
-                <i class="fa fa-copy"></i>&nbsp;&nbsp;&nbsp;Copy List
-              </li>
-              <li class="list-group-item list-group-item-action">
-                <i class="fa fa-arrows"></i>&nbsp;&nbsp;&nbsp;Move List
-              </li>
-              <li class="list-group-item list-group-item-action">
-                <i class="fa fa-eye"></i>&nbsp;&nbsp;&nbsp;Watch
-              </li>
-              <hr> 
-              <li class="list-group-item list-group-item-action"><i class="fas fa-sort"></i>&nbsp;&nbsp;&nbsp;Sort By ...</li>
-              <hr>
-              <li class="list-group-item list-group-item-action"><i class="fas fa-file-archive"></i>&nbsp;&nbsp;&nbsp;Archive All Cards in This List </li>
-              <li class="list-group-item list-group-item-action"><i class="fas fa-arrow-left"></i>&nbsp;&nbsp;&nbsp;Move All 
-              Card in This List  </li>
-              <li
-                class="list-group-item text-danger list-group-item-action"
-                onclick="goDeleteList()"
+
+          <div class="modal-body">
+            <div class="modal-leftside">
+              <div class="modal-leftside-section d-flex">
+                <i class="fas fa-align-left"></i>
+                <div class="mx-2">
+                  <h2>Description</h2>
+                  <p id="modal-description"></p>
+                </div>
+              </div>
+
+              <div class="modal-leftside-section d-flex mb-4">
+                <i class="fas fa-paperclip"></i>
+                <div class="mx-2">
+                  <h2 class="mb-3">Attachment</h2>
+                  <a> Add an attachment </a>
+                </div>
+              </div>
+
+              <div class="modal-leftside-section d-flex">
+                <i class="fas fa-check-square"></i>
+                <div class="checklist-wrapper mx-2">
+                  <div class="checklist">
+                    <h2>Checklist</h2>
+                    <a> delete </a>
+                  </div>
+                  <p>none</p>
+                </div>
+              </div>
+
+              <div class="modal-leftside-section d-flex">
+                <i class="fas fa-list-ul"></i>
+                <div class="checklist mx-2">
+                  <h2>Activity</h2>
+                  <a> Show Details </a>
+                </div>
+              </div>
+
+              <div
+                class="modal-leftside-section d-flex mt-4 align-items-center"
               >
-                <i class="fa fa-trash"></i>&nbsp;&nbsp;&nbsp;Delete
-              </li>
-            </ul>
+                <button
+                  class="btn btn-sm text-light m-1 avatar profile"
+                ></button>
+                <input type="text" name="" placeholder="Write a comment..." />
+              </div>
+            </div>
+
+            <div class="modal-rightside">
+              <div class="suggested d-flex justify-content-between">
+                <h3>SUGGESTED</h3>
+                <i class="fas fa-cog"></i>
+              </div>
+
+              <div class="modal-rightside-section">
+                <i class="far fa-user"></i>
+                <label> Join </label>
+              </div>
+
+              <div class="feedback my-3">
+                <a> Feedback </a>
+              </div>
+
+              <div class="">
+                <h3>ADD TO CARD</h3>
+                <div class="modal-rightside-section my-2">
+                  <i class="far fa-user"></i>
+                  <label>Members</label>
+                </div>
+                <div class="modal-rightside-section my-2">
+                  <i class="fas fa-tag"></i>
+                  <label> Labels </label>
+                </div>
+                <div class="modal-rightside-section my-2">
+                  <i class="far fa-check-square"></i>
+                  <label> Checklist </label>
+                </div>
+                <div class="modal-rightside-section my-2">
+                  <i class="far fa-clock"></i>
+                  <label> Due Date </label>
+                </div>
+                <div class="modal-rightside-section my-2">
+                  <i class="fas fa-paperclip"></i>
+                  <label> Attachment </label>
+                </div>
+                <div class="modal-rightside-section my-2">
+                  <i class="fas fa-tv"></i>
+                  <label> Cover </label>
+                </div>
+              </div>
+
+              <div class="">
+                <h3>POWER UPS</h3>
+                <div class="modal-rightside-section my-2">
+                  <i class="fab fa-github"></i>
+                  <label> Github </label>
+                </div>
+                <div class="modal-rightside-section my-2">
+                  <label> More Power Ups </label>
+                </div>
+              </div>
+
+              <div class="">
+                <h3>ACTIONS</h3>
+                <div class="modal-rightside-section my-2">
+                  <i class="fas fa-arrow-right"></i>
+                  <label> Move </label>
+                </div>
+                <div class="modal-rightside-section my-2">
+                  <i class="far fa-copy"></i>
+                  <label> Copy </label>
+                </div>
+                <div class="modal-rightside-section my-2">
+                  <i class="fas fa-money-check"></i>
+                  <label> Make Template </label>
+                </div>
+                <div class="modal-rightside-section my-2">
+                  <i class="far fa-eye"></i>
+                  <label> Watch </label>
+                </div>
+                <div class="modal-rightside-section my-2">
+                  <i class="fas fa-archive"></i>
+                  <label> Archive </label>
+                </div>
+                <div class="modal-rightside-section my-2">
+                  <i class="fas fa-share-alt"></i>
+                  <label> Share </label>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    -->
 
- 
+    <div class="list-menu rounded p-1" id="list-menu-popup">
+      <ul class="list-group list-group-flush">
+        <p>List Actions</p>
 
-</body>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <hr align="center" />
 
-<script src="script.js"> </script>
-<script type="text/javascript">
-  $('.btn-ell').click(function(){
-  $('#ListActionModal').modal('toggle');
-});
-// $('#exampleModal').modal('toggle');
+        <li class="list-group-item list-group-item-action">
+          <i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;Add Card
+        </li>
+        <li class="list-group-item list-group-item-action">
+          <i class="fa fa-copy"></i>&nbsp;&nbsp;&nbsp;Copy List
+        </li>
+        <li class="list-group-item list-group-item-action">
+          <i class="fas fa-expand-arrows-alt"></i>&nbsp;&nbsp;&nbsp;Move List
+        </li>
+        <li class="list-group-item list-group-item-action">
+          <i class="fa fa-eye"></i>&nbsp;&nbsp;&nbsp;Watch
+        </li>
+        <hr />
+        <li class="list-group-item list-group-item-action">
+          <i class="fas fa-sort"></i>&nbsp;&nbsp;&nbsp;Sort By ...
+        </li>
+        <hr />
+        <li class="list-group-item list-group-item-action">
+          <i class="fas fa-file-archive"></i>&nbsp;&nbsp;&nbsp;Archive All Cards
+          in This List
+        </li>
+        <li class="list-group-item list-group-item-action">
+          <i class="fas fa-arrow-left"></i>&nbsp;&nbsp;&nbsp;Move All Card in
+          This List
+        </li>
+        <li
+          class="list-group-item text-danger list-group-item-action"
+          onclick="goDeleteList()"
+        >
+          <i class="fa fa-trash"></i>&nbsp;&nbsp;&nbsp;Delete
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"
+  ></script>
 
-// $('#ListActionModal').modal('show');
+  <script src="script.js"></script>
+  <script type="text/javascript">
+    $(".btn-ell").click(function () {
+      $("#ListActionModal").modal("toggle");
+    });
+    // $('#exampleModal').modal('toggle');
 
-
-
-
+    // $('#ListActionModal').modal('show');
   </script>
-  
 </html>
